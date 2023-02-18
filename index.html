@@ -1,0 +1,77 @@
+<html>
+<head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <title>calculator</title>
+<script>
+function ageCalculator() {
+    var userinput = document.getElementById("DOB").value;
+    var dob = new Date(userinput);
+    if(userinput==null || userinput=='') {
+      document.getElementById("message").innerHTML = "SELECT DATE!";  
+      return false; 
+    } else {
+    
+    //calculate month difference from current date in time
+    var month_diff = Date.now() - dob.getTime();
+    
+    //convert the calculated difference in date format
+    var age_dt = new Date(month_diff); 
+    
+    //extract year from date    
+    var year = age_dt.getUTCFullYear();
+    
+    //now calculate the age of the user
+    var age = Math.abs(year - 1970);
+    
+    //display the calculated age
+    return document.getElementById("result").innerHTML =  
+             "Age is: " + age + " years. ";
+    }
+}
+</script>
+<style>
+   /* body{
+  width: 100%;
+  height: 100vh;
+ background: linear-gradient(
+    to right,
+    paleturquoise 0%,
+    paleturquoise 25%,
+    violet 50%,
+    violet 100%
+  );
+}*/
+h1{
+    padding-top: 10%;
+}
+
+body, html {
+  height: 100%;
+}
+.img {
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
+</head>
+<body class="img" background="red-and-blue-calculators-yxm0myfzuym67431.jpg" >
+  
+<center>
+<h1  align="center"> <b>AGE CALCULATOR </b><br> <br> </h1> 
+
+<!-- Choose a date and enter in input field -->
+<h3><b>Date of Birth: <input type=date id = DOB> </b></h3>
+<span id = "message" style="color:black"> </span> <br><br>  
+
+<!-- Choose a date and enter in input field -->
+<button type="submit" class="btn btn-primary btn-lg"onclick="ageCalculator()">Calculate age</button><br><br>
+
+<h3 style="color:32A80F" id="result" align="center"></h3> 
+</center>
+</body>
+</html>
